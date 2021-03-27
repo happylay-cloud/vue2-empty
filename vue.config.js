@@ -7,10 +7,10 @@ module.exports = {
     https: false,
     open: true,
     proxy: {
-      '/api': {
+      '/dev-api': {
         target: 'http://localhost:18080',
         changeOrigin: true,
-        pathRewrite: { '^/api': 'api' }
+        pathRewrite: { '^/dev-api': '' }
       }
     }
   }
