@@ -15,22 +15,18 @@ app.get('/', (req, res) => {
 })
 
 // 处理GET请求
-app.get('/api', (req, res) => {
+app.get('/getUserInfo', (req, res) => {
+  const { id } = req.query
+
   const data = {
     code: 200,
     msg: '请求成功',
     data: {
-      id: 1,
-      name: '接口数据'
+      id: id,
+      name: 'admin'
     }
   }
   res.send(data)
-})
-
-// 接收GET请求
-app.get('/login', (req, res) => {
-  const { username, password } = req.query
-  res.send(`用户名：${username}，密码：${password}`)
 })
 
 // 接收POST请求

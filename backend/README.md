@@ -23,7 +23,7 @@ node api.js
 `GET`
 
 ```
-http://localhost:18080/login?username=admin&password=123456
+http://localhost:18080/getUserInfo?id=1
 ```
 
 `POST`
