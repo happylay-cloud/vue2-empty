@@ -1,6 +1,7 @@
 const state = {
   // 用户信息
-  userinfo: ''
+  userinfo: '',
+  perms: ['system:user:add']
 }
 
 const mutations = {
@@ -15,6 +16,10 @@ const getters = {
   // 获取用户信息
   getUserInfo (state) {
     return state.userinfo
+  },
+  // 获取用户权限
+  getUserPerms: state => {
+    return state.perms
   }
 }
 
