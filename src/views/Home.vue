@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Hello World"/>
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Hello World" />
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+  mounted () {
+    this.$store.commit('user/setUserInfo', '用户信息')
+    const userinfo = this.$store.getters['user/getUserInfo']
+    console.log(userinfo)
   }
 }
 </script>
