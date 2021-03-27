@@ -16,7 +16,6 @@ npm install body-parser --save
 
 ```
 node api.js
-
 ```
 
 ## 接口测试
@@ -25,7 +24,6 @@ node api.js
 
 ```
 http://localhost:18080/login?username=admin&password=123456
-
 ```
 
 `POST`
