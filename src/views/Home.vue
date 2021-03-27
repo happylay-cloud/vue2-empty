@@ -6,16 +6,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 import { login, getUserinfo } from '@/api/login'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  },
   mounted () {
     // vuex样例
     this.$store.commit('user/setUserInfo', '用户信息')
