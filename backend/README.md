@@ -12,6 +12,12 @@ npm install express -D
 npm install body-parser --save
 ```
 
+`安装jwt库`
+
+```
+npm install jsonwebtoken -S
+```
+
 ## 启动后端接口
 
 ```

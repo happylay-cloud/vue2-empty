@@ -11,11 +11,6 @@ import { login, getUserinfo } from '@/api/login'
 export default {
   name: 'Home',
   mounted () {
-    // vuex样例
-    this.$store.commit('user/setUserInfo', '用户信息')
-    const userinfo = this.$store.getters['user/getUserInfo']
-    console.log(userinfo)
-
     // 全局挂载-axios样例
     this.$http
       .get('/getUserInfo', { params: { id: 1 } })
@@ -40,10 +35,16 @@ export default {
 
     getUserinfo(query)
       .then(response => {
-        console.log(response)
+        // vuex样例-mutations
+        this.$store.commit('user/setUserInfo', response.data.data)
       })
       .catch(error => {
         console.log(error)
+      })
+      .finally(() => {
+        // vuex样例-getters
+        const userinfo = this.$store.getters['user/getUserInfo']
+        console.log('用户信息', userinfo)
       })
   }
 }

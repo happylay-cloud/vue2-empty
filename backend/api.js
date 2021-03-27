@@ -1,6 +1,7 @@
 // 引入模块
 const express = require('express')
 const bodyParser = require('body-parser')
+const jwt = require('jsonwebtoken')
 
 // 创建实例
 const app = express()
@@ -14,7 +15,7 @@ app.get('/', (req, res) => {
   res.send('API接口')
 })
 
-// 处理GET请求
+// 获取用户信息-处理GET请求
 app.get('/getUserInfo', (req, res) => {
   const { id } = req.query
 
@@ -23,17 +24,29 @@ app.get('/getUserInfo', (req, res) => {
     msg: '请求成功',
     data: {
       id: id,
-      name: 'admin'
+      name: 'admin',
+      perms: ['system:user:add', 'system:user:delete']
     }
   }
   res.send(data)
 })
 
-// 接收POST请求
+// 用户登录-接收POST请求
 app.post('/login', (req, res) => {
   // 使用中间件处理的数据会存放到req.body中
-  console.log(req.body)
-  res.send(req.body)
+  const { username, password } = req.body
+
+  console.log('用户登录：', username, password)
+
+  // jwt生成加密token，username是公文，密钥是“secret“，1小时后过期
+  const token = jwt.sign({ username }, 'secret', { expiresIn: 60 * 60 * 1 })
+  res.json({
+    code: 200,
+    msg: '登录成功',
+    data: {
+      token: token
+    }
+  })
 })
 
 // 启动服务开始监听

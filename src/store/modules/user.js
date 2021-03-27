@@ -1,17 +1,19 @@
 const state = {
   // 用户信息
-  userinfo: '',
+  userinfo: {},
   perms: ['system:user:add']
 }
 
 const mutations = {
   // 设置用户信息
-  setUserInfo (state, userinfo) {
-    state.userinfo = userinfo
+  setUserInfo (state, data) {
+    state.userinfo = data
+    state.perms = data.perms
   }
 }
 
 const actions = {}
+
 const getters = {
   // 获取用户信息
   getUserInfo (state) {
