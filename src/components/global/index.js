@@ -1,5 +1,6 @@
 import Vue from 'vue'
-// 读取文件的路径，读取文件的路径，匹配文件的正则
+
+// 创建自定义（模块）上下文
 const requireComponents = require.context(
   // 其组件目录的相对路径
   '.',

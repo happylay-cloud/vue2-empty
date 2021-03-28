@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// 读取文件的路径，读取文件的路径，匹配文件的正则
+// 创建自定义（模块）上下文
 const modulesFiles = require.context('./modules', true, /\.js$/)
 
 // 它将自动从模块文件中导入所有的vuex模块
